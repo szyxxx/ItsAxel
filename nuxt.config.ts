@@ -2,7 +2,7 @@
 import tailwindcss from "@tailwindcss/vite";
 
 // Get the repository name from the environment or set a default
-const baseURL = process.env.NUXT_APP_BASE_URL || '/ItsAxel!';
+const baseURL = process.env.NUXT_APP_BASE_URL || '/ItsAxel';
 
 export default defineNuxtConfig({
   ssr: false, // Switch to client-side rendering to avoid the cookie issue
@@ -40,7 +40,7 @@ export default defineNuxtConfig({
     head: {
       title: 'My Personal Diary',
       meta: [
-        { name: 'description', content: 'My personal diary and portfolio with AI assistant' }
+        { name: 'description', content: "It's Axel" }
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: `${baseURL}/favicon.ico` }
@@ -48,9 +48,9 @@ export default defineNuxtConfig({
     }
   },
   runtimeConfig: {
-    geminiApiKey: process.env.GEMINI_API_KEY,
+    geminiApiKey: process.env.GEMINI_API_KEY || 'AIzaSyDUMBIkRVDVecRKXcb72s0NNUaLcIJNKGQ',
     public: {
-      supabaseUrl: process.env.SUPABASE_URL
+    supabaseUrl: process.env.SUPABASE_URL || 'https://gsbvayifmvdojiqobkcz.supabase.co'
     }
   }
 })
