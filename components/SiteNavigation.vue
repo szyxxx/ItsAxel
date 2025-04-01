@@ -1,17 +1,17 @@
 <template>
-  <div class="fixed top-0 left-0 right-0 z-50 flex justify-center my-8">
-    <div class="bg-gray-900/80 backdrop-blur-sm rounded-full px-2 py-2 flex space-x-2">
-      <a href="#about" class="nav-link" :class="{ 'bg-gray-800': activeSection === 'about' }">
+  <div class="fixed top-0 left-0 right-0 z-50 flex justify-center my-4 md:my-8 px-4">
+    <div class="bg-gray-900/80 backdrop-blur-sm rounded-full py-2 flex flex-wrap justify-center space-x-1 md:space-x-2 w-full max-w-sm md:max-w-md">
+      <a href="#about" class="nav-link text-sm md:text-base" :class="{ 'bg-gray-800': activeSection === 'about' }">
         About
       </a>
-      <a href="#career" class="nav-link" :class="{ 'bg-gray-800': activeSection === 'career' }">
+      <a href="#career" class="nav-link text-sm md:text-base" :class="{ 'bg-gray-800': activeSection === 'career' }">
         Career
       </a>
-      <NuxtLink to="/journals" class="nav-link" :class="{ 'bg-gray-800': route.path === '/journals' }">
+      <NuxtLink to="/journals" class="nav-link text-sm md:text-base" :class="{ 'bg-gray-800': route.path === '/journals' }">
         Journals
       </NuxtLink>
-      <NuxtLink to="/szyx-ai" class="nav-link bg-blue-600 hover:bg-blue-700">
-        Chat with SZYX.AI
+      <NuxtLink to="/szyx-ai" class="nav-link text-sm md:text-base bg-blue-600 hover:bg-blue-700">
+        Chat
       </NuxtLink>
     </div>
   </div>
@@ -64,15 +64,18 @@ onUnmounted(() => {
 
 <style>
 .nav-link {
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  padding: 0.5rem 0.75rem;
   border-radius: 9999px;
   color: white;
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 300ms;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+@media (min-width: 768px) {
+  .nav-link {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
 }
 
 .nav-link:hover {
