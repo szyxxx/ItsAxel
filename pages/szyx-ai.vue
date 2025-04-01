@@ -11,7 +11,7 @@
             <span class="text-xl font-bold text-blue-400">SZYX<span class="text-white">.AI</span></span>
           </NuxtLink>
           <div class="h-5 w-px bg-gray-700"></div>
-          <span class="text-sm text-gray-400 hidden sm:inline">V0.2</span>
+          <span class="text-sm text-gray-400 sm:inline">V0.2</span>
         </div>
         <div class="flex items-center gap-4">
           <button @click="resetConversation" class="text-sm text-gray-400 hover:text-white transition-colors flex items-center gap-1">
