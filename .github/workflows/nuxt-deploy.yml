@@ -35,4 +35,4 @@ jobs:
         with:
           branch: gh-pages
           folder: .output/public
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}  # Use your PAT instead of GITHUB_TOKEN

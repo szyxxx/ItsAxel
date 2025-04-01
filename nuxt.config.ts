@@ -5,10 +5,20 @@ import tailwindcss from "@tailwindcss/vite";
 const baseURL = process.env.NUXT_APP_BASE_URL || '/ItsAxel';
 
 export default defineNuxtConfig({
-  ssr: false, // Switch to client-side rendering to avoid the cookie issue
-  compatibilityDate: '2024-11-01', // Using an older compatibility date
-  devtools: { enabled: true },
-
+  ssr: false,
+  app: {
+    baseURL,
+    buildAssetsDir: 'assets',
+    head: {
+      title: 'My Personal Diary',
+      meta: [
+        { name: 'description', content: "It's Axel" }
+      ],
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: `${baseURL}/favicon.ico` }
+      ]
+    }
+  },
   modules: [
     '@nuxt/ui',
     '@nuxt/fonts',
@@ -26,31 +36,19 @@ export default defineNuxtConfig({
       include: ['cookie'] // Include cookie as a dependency
     }
   },
+  // Explicitly configure Supabase
   supabase: {
+    url: 'https://gsbvayifmvdojiqobkcz.supabase.co',
+    key: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdzYnZheWlmbXZkb2ppcW9ia2N6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDM0ODQ3ODYsImV4cCI6MjA1OTA2MDc4Nn0.GoBHALk4Ka4P66oYyymnhiBXlz1OYt0gyiQSsUycvAw',
     redirect: false,
     cookieOptions: {
-      maxAge: 60 * 60 * 8,
-      sameSite: 'lax',
-      secure: false
-    }
-  },
-  app: {
-    baseURL, // Set the correct base URL for GitHub Pages
-    buildAssetsDir: '/assets/', // Don't use underscore for assets directory
-    head: {
-      title: 'My Personal Diary',
-      meta: [
-        { name: 'description', content: "It's Axel" }
-      ],
-      link: [
-        { rel: 'icon', type: 'image/x-icon', href: `${baseURL}/favicon.ico` }
-      ]
+      secure: process.env.NODE_ENV === 'production'
     }
   },
   runtimeConfig: {
     geminiApiKey: process.env.GEMINI_API_KEY || 'AIzaSyDUMBIkRVDVecRKXcb72s0NNUaLcIJNKGQ',
     public: {
-    supabaseUrl: process.env.SUPABASE_URL || 'https://gsbvayifmvdojiqobkcz.supabase.co'
+      supabaseUrl: 'https://gsbvayifmvdojiqobkcz.supabase.co'
     }
   }
 })
