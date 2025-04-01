@@ -112,12 +112,11 @@
                   Tech Stack
                 </h3>
                 <div class="flex flex-wrap gap-2">
-                  <span class="tech-badge">Python</span>
-                  <span class="tech-badge">Vue.js</span>
-                  <span class="tech-badge">Nuxt</span>
-                  <span class="tech-badge">Laravel</span>
                   <span class="tech-badge">C</span>
-                  <span class="tech-badge">IoT</span>
+                  <span class="tech-badge">Python</span>
+                  <span class="tech-badge">Laravel</span>
+                  <span class="tech-badge">Nuxt</span>
+                  <span class="tech-badge">Arduino</span>
                 </div>
               </div>
             </div>
