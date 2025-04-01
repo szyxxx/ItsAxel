@@ -11,7 +11,7 @@
         Journals
       </NuxtLink>
       <NuxtLink to="/szyx-ai" class="nav-link text-sm md:text-base bg-blue-600 hover:bg-blue-700">
-        Chat
+        Szyx.AI
       </NuxtLink>
     </div>
   </div>
