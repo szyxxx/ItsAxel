@@ -4,13 +4,16 @@
     <SiteNavigation />
     
     <!-- Hero Section -->
-    <section id="hero" class="min-h-[90vh] flex flex-col items-center justify-center px-4 relative z-10">
+    <section id="hero" class="min-h-screen flex flex-col items-center justify-center px-4 relative z-10">
       <div data-animate="fade" class="text-center">
-        <div class="inline-block relative mb-6">
+        <div class="inline-block relative mb-2">
           <div class="hero-glow absolute -inset-10 rounded-full blur-3xl opacity-30 bg-blue-500"></div>
           <h1 class="text-4xl md:text-7xl font-bold mb-4 hero-text relative">Hi! <span class="wave">👋</span></h1>
         </div>
-        <h2 class="text-3xl md:text-6xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 text-transparent bg-clip-text">This is Axel</h2>
+        <!-- Animated text with typewriter effect -->
+        <h2 class="text-3xl md:text-6xl font-bold bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 text-transparent bg-clip-text h-[3rem] md:h-[4.5rem] flex items-center justify-center">
+          <span class="animated-text">{{ currentText }}</span>
+        </h2>
         <p class="mt-6 text-lg md:text-xl text-gray-300">Computer Engineering Student & Software Developer</p>
         
         <div class="mt-10">
@@ -178,11 +181,55 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import { useScrollAnimation } from '~/composables/useScrollAnimation'
 
-const userInput = ref('')
-const messages = ref([])
+// Text rotation variables
+const textOptions = [
+  'This is Axel',
+  'I do code',
+  'and also a bit of messing with AI',
+  'and some gaming',
+  'and you\'ll find me singing',
+  'anyway I\'m Axel'
+];
+const currentText = ref(textOptions[0]);
+let currentIndex = 0;
+let textInterval;
+
+// Initialize text rotation
+onMounted(() => {
+  textInterval = setInterval(() => {
+    currentIndex = (currentIndex + 1) % textOptions.length;
+    fadeOut();
+    setTimeout(() => {
+      currentText.value = textOptions[currentIndex];
+      fadeIn();
+    }, 500); // Half of transition time for fade out/in
+  }, 3500); // Change text every 2.5 seconds
+});
+
+// Clean up interval on component unmount
+onUnmounted(() => {
+  clearInterval(textInterval);
+});
+
+// Text fade helpers
+function fadeOut() {
+  const element = document.querySelector('.animated-text');
+  if (element) element.classList.add('fade-out');
+}
+
+function fadeIn() {
+  const element = document.querySelector('.animated-text');
+  if (element) {
+    element.classList.remove('fade-out');
+    element.classList.add('fade-in');
+    setTimeout(() => {
+      element.classList.remove('fade-in');
+    }, 500);
+  }
+}
 
 // Initialize scroll animations
 onMounted(() => {
@@ -200,6 +247,9 @@ onMounted(() => {
     })
   })
 })
+
+const userInput = ref('')
+const messages = ref([])
 
 const sendMessage = async () => {
   if (!userInput.value.trim()) return
@@ -239,7 +289,33 @@ const sendMessage = async () => {
 </script>
 
 <style scoped>
-/* Code dot pattern background */
+/* Add these new styles for the animated text */
+.animated-text {
+  display: inline-block;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.fade-out {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+  animation: text-shimmer 2s ease;
+}
+
+@keyframes text-shimmer {
+  0% {
+    background-position: -100% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+/* Rest of your styles remain the same */
 .code-pattern-bg {
   background-color: #0f172a;
   background-image: 
