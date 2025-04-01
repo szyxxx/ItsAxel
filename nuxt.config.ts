@@ -10,7 +10,7 @@ export default defineNuxtConfig({
     baseURL,
     buildAssetsDir: 'assets',
     head: {
-      title: 'My Personal Diary',
+      title: "It's Axel",
       meta: [
         { name: 'description', content: "It's Axel" }
       ],
