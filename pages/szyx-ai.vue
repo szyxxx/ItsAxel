@@ -139,7 +139,7 @@ const sendMessage = async () => {
 onMounted(() => {
   messages.value.push({
     role: 'assistant',
-    content: "Hello! I'm Szyx, Axel's personal assistant. How can I help you today? Maybe you want to ask me about Axel's projects, or even tell me you unspoken secrets that you can't tell Axel?",
+    content: "Halo! Aku Szyx, asisten AI Agent buatan Axel. Apa yang kamu mau tahu tentang Axel?",
   });
 });
 </script>
