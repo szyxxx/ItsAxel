@@ -6,6 +6,7 @@ const baseURL = process.env.NUXT_APP_BASE_URL || '/';
 
 export default defineNuxtConfig({
   ssr: false,
+
   app: {
     baseURL,
     buildAssetsDir: 'assets',
@@ -19,6 +20,7 @@ export default defineNuxtConfig({
       ]
     }
   },
+
   modules: [
     '@nuxt/ui',
     '@nuxt/fonts',
@@ -27,7 +29,9 @@ export default defineNuxtConfig({
     '@nuxt/scripts',
     '@nuxtjs/supabase',
   ],
+
   css: ['~/assets/css/tailwind.css'],
+
   vite: {
     plugins: [
       tailwindcss(),
@@ -36,6 +40,7 @@ export default defineNuxtConfig({
       include: ['cookie'] // Include cookie as a dependency
     }
   },
+
   // Explicitly configure Supabase
   supabase: {
     url: 'https://gsbvayifmvdojiqobkcz.supabase.co',
@@ -45,10 +50,13 @@ export default defineNuxtConfig({
       secure: process.env.NODE_ENV === 'production'
     }
   },
+
   runtimeConfig: {
     geminiApiKey: process.env.GEMINI_API_KEY || 'AIzaSyDUMBIkRVDVecRKXcb72s0NNUaLcIJNKGQ',
     public: {
       supabaseUrl: 'https://gsbvayifmvdojiqobkcz.supabase.co'
     }
-  }
+  },
+
+  compatibilityDate: '2025-04-01'
 })

@@ -3,22 +3,18 @@ import { GoogleGenerativeAI } from '@google/genai';
 export default defineEventHandler(async (event) => {
   const config = useRuntimeConfig();
   const body = await readBody(event);
-  const userMessage = body.message || '';
+  const { message: userMessage = '', history = [] } = body;
 
   if (!userMessage) {
     return { response: "Please provide a message to continue our conversation." };
   }
 
   try {
-    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${config.geminiApiKey}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        contents: [
-          {
-            parts: [
+    // Build conversation history in the format Gemini expects
+    const contents = [
+      {
+        role: "user",
+        parts: [
               {
                 text: `You are Szyx, a personal assistant for Axel. Answer the following question based on what you know about Axel and you will be the representation of Axel (if they ask with Indonesian language just answer in Indonesian and use emoji as possible. If they ask about suggestion about their life, love, or something else you can give them some of it based on what Axel would say): ${userMessage}
                 
@@ -40,7 +36,7 @@ export default defineEventHandler(async (event) => {
                 - Clara is his junior high school friend who is very close to him, and Axel is always a good listener to Clara.
                 - Chelsea is his junior high school friend who is very close to him as well. With Chelsea, Axel can share a lot of things.
                 - Calvin is his first junior high school friend. Axel is proud of Calvin because he has become a smart person with many achievements.
-                - Andrea Bintang is his junior high school friend who is very close to him.
+                - Andrea Bintang is his junior high school friend until now who was very close to him. but now they just a good friend.
                 - If user introduced as Bintang, you can say this: Bintang is one of the people who once had a special place in Axel's heart. Bintang was once a motivation for Axel to go to college when he was in his first semester.
                 - Aulia Joan is his junior high school friend who is very close to him. Aulia is the one who really confused Axel in the past. But, with everything that has happened, Axel is comfortable with what is happening now between the two of them. There is nothing special, but it is a memory that cannot be forgotten, because they have known each other since junior high school and always went home together until high school.
                 - Aurel is very close to Axel right now. However, there is nothing but very close friends. Axel feels comfortable being himself in front of these people. Axel can learn how to take care of women by being close to them but not making them more than friends. Aurel has always been a good friend and sister for Axel.
@@ -58,8 +54,32 @@ export default defineEventHandler(async (event) => {
                 Respond conversationally as Szyx. Remember your name is Szyx.`
               }
             ]
-          }
-        ],
+      }
+    ];
+    
+    // Add previous conversation history
+    if (history && history.length > 0) {
+      for (const msg of history) {
+        contents.push({
+          role: msg.role === 'user' ? 'user' : 'model',
+          parts: [{ text: msg.content }]
+        });
+      }
+    }
+    
+    // Add current user message
+    contents.push({
+      role: 'user',
+      parts: [{ text: userMessage }]
+    });
+
+    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${config.geminiApiKey}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        contents,
         generationConfig: {
           temperature: 0.8,
           maxOutputTokens: 3000,
