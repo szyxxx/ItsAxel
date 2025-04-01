@@ -61,7 +61,7 @@
               <span>Axel itu orangnya kayak gimana sih?</span>
             </button>
             <button 
-              @click="insertPrompt('Axel lagi ngapain sekarang?')"
+              @click="insertPrompt('Gimana Axel melihat aku?')"
               class="text-left p-4 bg-gray-800/60 hover:bg-gray-700/80 border border-gray-700 rounded-xl transition-all hover:shadow-md hover:-translate-y-0.5 text-sm flex items-center gap-3"
             >
               <span class="bg-blue-600/30 text-blue-400 p-2 rounded-lg">
@@ -69,7 +69,7 @@
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </span>
-              <span>Axel lagi ngapain sekarang?</span>
+              <span>Gimana Axel melihat aku?</span>
             </button>
             <button 
               @click="insertPrompt('Axel sukanya apa?')"
