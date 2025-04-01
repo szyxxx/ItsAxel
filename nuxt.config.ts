@@ -2,7 +2,7 @@
 import tailwindcss from "@tailwindcss/vite";
 
 // Get the repository name from the environment or set a default
-const baseURL = process.env.NUXT_APP_BASE_URL || '/ItsAxel';
+const baseURL = process.env.NUXT_APP_BASE_URL || '/';
 
 export default defineNuxtConfig({
   ssr: false,
