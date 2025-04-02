@@ -16,7 +16,7 @@ export default defineNuxtConfig({
         { name: 'description', content: "It's Axel" }
       ],
       link: [
-        { rel: 'icon', type: 'image/x-icon', href: `${baseURL}/favicon.ico` }
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       ]
     }
   },

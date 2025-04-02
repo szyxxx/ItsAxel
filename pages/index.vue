@@ -276,7 +276,9 @@
           </NuxtLink>
         </div>
       </div>
+
     </PageSection>
+    
   </div>
 </template>
 
@@ -491,18 +493,19 @@ section {
   scroll-margin-top: 80px;
 }
 
-/* Add these styles to your <style> section */
+/* Experiment card styles */
 .experiment-card {
-  @apply block transition-all duration-300;
+  display: block;
+  transition-property: all;
+  transition-duration: 300ms;
 }
-
 
 .experiment-card-soon {
-  @apply transition-all duration-300;
+  transition-property: all;
+  transition-duration: 300ms;
 }
 
-
-/* Apply this if you're using Tailwind v4 */
+/* Layer utilities */
 @layer utilities {
   .grayscale {
     filter: grayscale(100%);
