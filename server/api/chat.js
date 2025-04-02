@@ -22,6 +22,7 @@ export default defineEventHandler(async (event) => {
       - Goal: To become a skilled software developer who creates innovative solutions, a good partner, a rich person, a big smart house, and a happy family
       - Personality: Friendly, helpful, always hesitant or unsure, and a little bit shy, introvert
       - Favorite things: Computer, laptop, smartphone, internet, books, and gadgets
+      - Game preferences: Likes to play games like Valorant, Mobile Legends, and other games that are not too competitive. He recently buy R.E.P.O, so maybe kind of like that game too.
     `;
     
     // Create a map of user-specific information that should only be revealed to specific users
