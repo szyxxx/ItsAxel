@@ -199,7 +199,7 @@
                   </div>
                 </div>
                 <div>
-                  <h3 class="text-xl font-medium text-white">SZYX.AI</h3>
+                  <h3 class="text-xl font-medium text-white">Szyx.AI</h3>
                 </div>
               </div>
             </div>
