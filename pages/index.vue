@@ -4,7 +4,7 @@
     <SiteNavigation />
     
     <!-- Hero Section -->
-    <section id="hero" class="min-h-screen flex flex-col items-center justify-center px-4 relative z-10">
+    <section id="hero" class="min-h-[110vh] flex flex-col items-center justify-center px-4 relative z-10">
       <div data-animate="fade" class="text-center">
         <div class="inline-block relative mb-2">
           <div class="hero-glow absolute -inset-10 rounded-full blur-3xl opacity-30 bg-blue-500"></div>
@@ -29,7 +29,7 @@
     </section>
     
     <!-- About Section -->
-    <section id="about" class="py-16 md:py-24 min-h-screen relative z-10">
+    <section id="about" class="my-4 md:py-24 min-h-screen relative z-10">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12">
           <div class="lg:col-span-2">
@@ -187,7 +187,7 @@ import { useScrollAnimation } from '~/composables/useScrollAnimation'
 const textOptions = [
   'This is Axel',
   'I do code',
-  'and also a bit of messing with AI',
+  'and messing with AI',
   'and some gaming',
   'and you\'ll find me singing',
   'anyway I\'m Axel'

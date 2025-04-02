@@ -1,6 +1,6 @@
 <template>
-  <div class="fixed top-0 left-0 right-0 z-50 flex justify-center my-4 md:my-8 px-4">
-    <div class="bg-gray-900/80 backdrop-blur-sm rounded-full py-2 flex flex-wrap justify-center space-x-1 md:space-x-2 w-full max-w-sm md:max-w-md shadow-2xl shadow-blue-300 border border-blue-100/20">
+  <div class="fixed top-5 left-0 right-0 z-50 flex justify-center my-4 md:my-8 px-4">
+    <div class="bg-gray-900/80 backdrop-blur-sm rounded-full py-2 flex flex-wrap justify-center space-x-1 md:space-x-2 w-full max-w-sm md:max-w-md shadow shadow-blue-300 border border-blue-100/20">
       <a href="#about" class="nav-link text-sm md:text-base" :class="{ 'bg-gray-800': activeSection === 'about' }">
         About
       </a>
@@ -10,7 +10,7 @@
       <NuxtLink to="/journals" class="nav-link text-sm md:text-base" :class="{ 'bg-gray-800': route.path === '/journals' }">
         Journals
       </NuxtLink>
-      <NuxtLink to="/szyx-ai" class="nav-link text-sm md:text-base bg-blue-600 hover:bg-blue-700">
+      <NuxtLink to="/szyx-ai" class="nav-link text-sm md:text-base bg-linear-to-br from-blue-400 to-indigo-600 hover:bg-blue-700 font-bold">
         Szyx.AI
       </NuxtLink>
     </div>
