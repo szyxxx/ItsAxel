@@ -37,7 +37,7 @@
         <div class="text-center">
           <div class="inline-block bg-blue-600 rounded-full p-5 mb-4">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
             </svg>
           </div>
           <h1 class="text-2xl font-bold mb-2">Chat with Szyx</h1>
@@ -49,50 +49,41 @@
         <div>
           <h2 class="text-lg font-medium text-gray-300 mb-3 text-center">Tanyakan sesuatu tentang Axel:</h2>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-3 max-w-2xl mx-auto">
-            <button 
-              @click="insertPrompt('Axel itu orangnya kayak gimana sih?')"
-              class="text-left p-4 bg-gray-800/60 hover:bg-gray-700/80 border border-gray-700 rounded-xl transition-all hover:shadow-md hover:-translate-y-0.5 text-sm flex items-center gap-3"
-            >
-              <span class="bg-indigo-600/30 text-indigo-400 p-2 rounded-lg">
+            <PromptButton @click="insertPrompt('Axel itu orangnya kayak gimana sih?')" iconClass="bg-indigo-600/30 text-indigo-400 p-2 rounded-lg">
+              <template #icon>
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                 </svg>
-              </span>
-              <span>Axel itu orangnya kayak gimana sih?</span>
-            </button>
-            <button 
-              @click="insertPrompt('Gimana Axel melihat aku?')"
-              class="text-left p-4 bg-gray-800/60 hover:bg-gray-700/80 border border-gray-700 rounded-xl transition-all hover:shadow-md hover:-translate-y-0.5 text-sm flex items-center gap-3"
-            >
-              <span class="bg-blue-600/30 text-blue-400 p-2 rounded-lg">
+              </template>
+              Axel itu orangnya kayak gimana sih?
+            </PromptButton>
+            
+            <PromptButton @click="insertPrompt('Gimana Axel melihat aku?')" iconClass="bg-blue-600/30 text-blue-400 p-2 rounded-lg">
+              <template #icon>
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-              </span>
-              <span>Gimana Axel melihat aku?</span>
-            </button>
-            <button 
-              @click="insertPrompt('Axel sukanya apa?')"
-              class="text-left p-4 bg-gray-800/60 hover:bg-gray-700/80 border border-gray-700 rounded-xl transition-all hover:shadow-md hover:-translate-y-0.5 text-sm flex items-center gap-3"
-            >
-              <span class="bg-red-600/30 text-red-400 p-2 rounded-lg">
+              </template>
+              Gimana Axel melihat aku?
+            </PromptButton>
+            
+            <PromptButton @click="insertPrompt('Axel sukanya apa?')" iconClass="bg-red-600/30 text-red-400 p-2 rounded-lg">
+              <template #icon>
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                 </svg>
-              </span>
-              <span>Axel sukanya apa?</span>
-            </button>
-            <button 
-              @click="insertPrompt('Lagu favorit Axel?')"
-              class="text-left p-4 bg-gray-800/60 hover:bg-gray-700/80 border border-gray-700 rounded-xl transition-all hover:shadow-md hover:-translate-y-0.5 text-sm flex items-center gap-3"
-            >
-              <span class="bg-green-600/30 text-green-400 p-2 rounded-lg">
+              </template>
+              Axel sukanya apa?
+            </PromptButton>
+            
+            <PromptButton @click="insertPrompt('Lagu favorit Axel?')" iconClass="bg-green-600/30 text-green-400 p-2 rounded-lg">
+              <template #icon>
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
                 </svg>
-              </span>
-              <span>Lagu favorit Axel?</span>
-            </button>
+              </template>
+              Lagu favorit Axel?
+            </PromptButton>
           </div>
         </div>
       </div>
@@ -104,29 +95,7 @@
 
       <!-- Chat Messages -->
       <div ref="chatContainer" class="flex-grow overflow-y-auto space-y-4 py-4 mb-4 custom-scrollbar">
-        <div v-for="(message, index) in messages" :key="index" 
-            class="flex animate-fade-in" 
-            :class="message.role === 'user' ? 'justify-end' : 'justify-start'">
-          <div class="max-w-[85%] md:max-w-2xl rounded-2xl p-4 shadow-md" 
-              :class="message.role === 'user' 
-                ? 'bg-blue-600 text-white rounded-br-none' 
-                : 'bg-gray-800/70 border border-gray-700 rounded-bl-none'">
-            <div class="flex items-center mb-2">
-              <div class="w-6 h-6 rounded-full flex items-center justify-center mr-2"
-                  :class="message.role === 'user' ? 'bg-blue-700 text-white' : 'bg-gray-700 text-blue-400'">
-                <span v-if="message.role === 'user'">Y</span>
-                <span v-else>S</span>
-              </div>
-              <div class="text-xs opacity-70">
-                {{ message.role === 'user' ? 'You' : 'SZYX.AI' }}
-              </div>
-            </div>
-            <div v-if="message.isLoading" class="flex items-center space-x-2 mt-1">
-              <div class="dot-flashing"></div>
-            </div>
-            <div v-else class="whitespace-pre-wrap text-sm md:text-base">{{ message.content }}</div>
-          </div>
-        </div>
+        <ChatMessage v-for="(message, index) in messages" :key="index" :message="message" />
       </div>
       
       <!-- Input Form -->
@@ -152,7 +121,7 @@
           </button>
         </form>
         <div class="text-xs text-center text-gray-500 mt-3">
-          Saat ini Szyx hanya mengetahui 30% cerita kehidupan Axel, jadi tolong diwajarin aja ya kalau dia agak ngigo dikit 😉
+          Copyright © 2025 Axel. Made with Love ❤️
         </div>
       </div>
     </main>
@@ -160,112 +129,26 @@
 </template>
 
 <script setup>
-import { ref, onMounted, watch, nextTick } from 'vue';
+import { onMounted, watch } from 'vue';
+import { useChat } from '~/composables/useChat';
 
-const userInput = ref('');
-const messages = ref([]);
-const isLoading = ref(false);
-const errorMessage = ref('');
-const chatContainer = ref(null);
-
-// Maximum number of past messages to include in context (to avoid token limits)
-const MAX_CONTEXT_MESSAGES = 10;
-
-const insertPrompt = (prompt) => {
-  userInput.value = prompt;
-  sendMessage();
-};
-
-const resetConversation = () => {
-  messages.value = [];
-  
-  // Add the welcome message again
-  messages.value.push({
-    role: 'assistant',
-    content: "Halo! Aku Szyx, asisten AI Agent buatan Axel. Apa yang kamu mau tahu tentang Axel?"
-  });
-};
-
-const scrollToBottom = async () => {
-  await nextTick();
-  if (chatContainer.value) {
-    chatContainer.value.scrollTop = chatContainer.value.scrollHeight;
-  }
-};
-
-const sendMessage = async () => {
-  if (!userInput.value.trim() || isLoading.value) return;
-  
-  const userMessage = userInput.value.trim();
-  messages.value.push({ role: 'user', content: userMessage });
-  userInput.value = '';
-  isLoading.value = true;
-  errorMessage.value = '';
-  
-  await scrollToBottom();
-  
-  try {
-    // Add loading message
-    const loadingMessage = { role: 'assistant', content: '', isLoading: true };
-    messages.value.push(loadingMessage);
-    await scrollToBottom();
-    
-    // Extract conversation history for context
-    // We exclude the loading message and limit to last 10 messages to prevent token limit issues
-    const conversationHistory = messages.value
-      .filter(msg => !msg.isLoading)
-      .slice(-MAX_CONTEXT_MESSAGES);
-    
-    // Call the API with conversation history
-    const response = await $fetch('/api/chat', {
-      method: 'POST',
-      body: { 
-        message: userMessage,
-        history: conversationHistory
-      }
-    });
-    
-    // Remove loading message
-    const loadingIndex = messages.value.findIndex(m => m.isLoading);
-    if (loadingIndex !== -1) {
-      messages.value.splice(loadingIndex, 1);
-    }
-    
-    // Add the AI response
-    messages.value.push({ 
-      role: 'assistant', 
-      content: response.response || "Maaf, saya tidak bisa memberikan respon saat ini."
-    });
-    
-    await scrollToBottom();
-  } catch (error) {
-    console.error('Error sending message:', error);
-    
-    // Remove loading message
-    const loadingIndex = messages.value.findIndex(m => m.isLoading);
-    if (loadingIndex !== -1) {
-      messages.value.splice(loadingIndex, 1);
-    }
-    
-    // Show error message
-    errorMessage.value = "Gagal terhubung ke layanan AI. Silakan coba lagi nanti.";
-    
-    messages.value.push({ 
-      role: 'assistant', 
-      content: "Maaf, terjadi kesalahan saat memproses permintaan Anda. Silakan coba lagi nanti."
-    });
-    
-    await scrollToBottom();
-  } finally {
-    isLoading.value = false;
-  }
-};
+const {
+  userInput,
+  messages,
+  isLoading,
+  errorMessage,
+  chatContainer,
+  insertPrompt,
+  resetConversation,
+  sendMessage,
+  scrollToBottom
+} = useChat();
 
 // Add a welcome message on page load
 onMounted(() => {
   messages.value.push({
     role: 'assistant',
-    content: "Halo! Aku Szyx, asisten AI Agent buatan Axel. Apa yang kamu mau tahu tentang Axel?"
+    content: "Halo! Aku Szyx, asisten AI buatan Axel. Apa yang kamu mau tahu tentang Axel?"
   });
 });
 

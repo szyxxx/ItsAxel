@@ -7,10 +7,10 @@
       <a href="#career" class="nav-link text-sm md:text-base" :class="{ 'bg-gray-800': activeSection === 'career' }">
         Career
       </a>
-      <NuxtLink to="/journals" class="nav-link text-sm md:text-base" :class="{ 'bg-gray-800': route.path === '/journals' }">
-        Journals
-      </NuxtLink>
-      <NuxtLink to="/szyx-ai" class="nav-link text-sm md:text-base bg-linear-to-br from-blue-400 to-indigo-600 hover:bg-blue-700 font-bold">
+      <a href="#experiments" class="nav-link text-sm md:text-base" :class="{ 'bg-gray-800': activeSection === 'experiments' }">
+        Experiments
+      </a>
+      <NuxtLink to="/experiments/szyx-ai" class="nav-link text-sm md:text-base bg-linear-to-br from-blue-400 to-indigo-600 hover:bg-blue-700 font-bold">
         Szyx.AI
       </NuxtLink>
     </div>
@@ -23,7 +23,7 @@ const activeSection = ref('')
 
 // Function to update active section based on scroll position
 const updateActiveSection = () => {
-  const sections = ['hero', 'about', 'career']
+  const sections = ['hero', 'about', 'career', 'experiments']
   
   for (const section of sections) {
     const element = document.getElementById(section)

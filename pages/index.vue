@@ -4,7 +4,7 @@
     <SiteNavigation />
     
     <!-- Hero Section -->
-    <section id="hero" class="min-h-[110vh] flex flex-col items-center justify-center px-4 relative z-10">
+    <PageSection id="hero" sectionClass="min-h-[110vh] flex flex-col items-center justify-center px-4 relative z-10">
       <div data-animate="fade" class="text-center">
         <div class="inline-block relative mb-2">
           <div class="hero-glow absolute -inset-10 rounded-full blur-3xl opacity-30 bg-blue-500"></div>
@@ -26,10 +26,10 @@
           </a>
         </div>
       </div>
-    </section>
+    </PageSection>
     
     <!-- About Section -->
-    <section id="about" class="my-4 md:py-24 min-h-screen relative z-10">
+    <PageSection id="about" sectionClass="my-4 md:py-24 min-h-screen relative z-10">
       <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12">
           <div class="lg:col-span-2">
@@ -123,65 +123,168 @@
           </div>
         </div>
       </div>
-    </section>
+    </PageSection>
     
     <!-- Career Section -->
-    <section id="career" class="py-16 md:py-24 min-h-screen relative z-10">
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 data-animate="fade" class="text-3xl md:text-4xl font-bold text-center mb-10 md:mb-16 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-500">
-          My Computer Engineering Journey
-        </h1>
+    <PageSection id="career">
+      <h1 data-animate="fade" class="text-3xl md:text-4xl font-bold text-center mb-10 md:mb-16 bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-500">
+        My Computer Engineering Journey
+      </h1>
+      
+      <div class="relative">
+        <!-- Timeline line - centered on mobile, left-aligned on larger screens -->
+        <div class="absolute left-1/2 md:left-16 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500 transform -translate-x-1/2 md:-translate-x-0 z-0"></div>
         
-        <div class="relative">
-          <!-- Timeline line - centered on mobile, left-aligned on larger screens -->
-          <div class="absolute left-1/2 md:left-16 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 via-purple-500 to-pink-500 transform -translate-x-1/2 md:-translate-x-0 z-0"></div>
-          
-          <div class="space-y-16 md:space-y-24">
-            <!-- C Language -->
-            <div data-animate="slide-right" class="flex flex-col md:flex-row relative z-10">
-              <div class="flex-shrink-0 w-20 h-20 md:w-32 md:h-32 mx-auto md:mx-0 border-4 border-gray-800 rounded-full flex items-center justify-center mb-4 md:mb-0 md:mr-8 shadow-xl timeline-node">
-                <span class="text-3xl md:text-6xl font-bold text-blue-400">C</span>
-              </div>
-              
-              <div class="text-center md:text-left md:pt-6 glass-card rounded-2xl p-4 md:p-6">
-                <h2 class="text-2xl md:text-3xl font-bold mb-3 md:mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-300">First Programming Language: C</h2>
-                <p class="text-base md:text-lg text-gray-300 leading-relaxed">
-                  My journey in Computer Engineering began with a fascination for the digital world. 
-                  I was drawn to the endless possibilities and the power of problem-solving that 
-                  programming offered. My first steps into this exciting field were with the C language. 
-                  Learning C provided a strong foundation in computer science fundamentals, helping me 
-                  understand the building blocks of programming.
-                </p>
-              </div>
+        <div class="space-y-16 md:space-y-24">
+          <!-- C Language -->
+          <div data-animate="slide-right" class="flex flex-col md:flex-row relative z-10">
+            <div class="flex-shrink-0 w-20 h-20 md:w-32 md:h-32 mx-auto md:mx-0 border-4 border-gray-800 rounded-full flex items-center justify-center mb-4 md:mb-0 md:mr-8 shadow-xl timeline-node">
+              <span class="text-3xl md:text-6xl font-bold text-blue-400">C</span>
             </div>
             
-            <!-- Python -->
-            <div data-animate="slide-right" class="flex flex-col md:flex-row relative z-10">
-              <div class="flex-shrink-0 w-20 h-20 md:w-32 md:h-32 mx-auto md:mx-0 border-4 border-gray-800 rounded-full flex items-center justify-center mb-4 md:mb-0 md:mr-8 shadow-xl timeline-node">
-                <span class="text-3xl md:text-6xl font-bold text-blue-400">Py</span>
-              </div>
-              
-              <div class="text-center md:text-left md:pt-6 glass-card rounded-2xl p-4 md:p-6">
-                <h2 class="text-2xl md:text-3xl font-bold mb-3 md:mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-300">Exploring Data Science with Python</h2>
-                <p class="text-base md:text-lg text-gray-300 leading-relaxed">
-                  After mastering the basics with C, I discovered Python and its powerful ecosystem for 
-                  data science and machine learning. Python's simplicity and versatility allowed me to 
-                  quickly prototype ideas and build data-driven applications. I explored libraries like 
-                  NumPy, Pandas, and TensorFlow, which opened up new possibilities in data analysis and 
-                  artificial intelligence.
-                </p>
-              </div>
+            <div class="text-center md:text-left md:pt-6 glass-card rounded-2xl p-4 md:p-6">
+              <h2 class="text-2xl md:text-3xl font-bold mb-3 md:mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-300">First Programming Language: C</h2>
+              <p class="text-base md:text-lg text-gray-300 leading-relaxed">
+                My journey in Computer Engineering began with a fascination for the digital world. 
+                I was drawn to the endless possibilities and the power of problem-solving that 
+                programming offered. My first steps into this exciting field were with the C language. 
+                Learning C provided a strong foundation in computer science fundamentals, helping me 
+                understand the building blocks of programming.
+              </p>
+            </div>
+          </div>
+          
+          <!-- Python -->
+          <div data-animate="slide-right" class="flex flex-col md:flex-row relative z-10">
+            <div class="flex-shrink-0 w-20 h-20 md:w-32 md:h-32 mx-auto md:mx-0 border-4 border-gray-800 rounded-full flex items-center justify-center mb-4 md:mb-0 md:mr-8 shadow-xl timeline-node">
+              <span class="text-3xl md:text-6xl font-bold text-blue-400">Py</span>
+            </div>
+            
+            <div class="text-center md:text-left md:pt-6 glass-card rounded-2xl p-4 md:p-6">
+              <h2 class="text-2xl md:text-3xl font-bold mb-3 md:mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-300">Exploring Data Science with Python</h2>
+              <p class="text-base md:text-lg text-gray-300 leading-relaxed">
+                After mastering the basics with C, I discovered Python and its powerful ecosystem for 
+                data science and machine learning. Python's simplicity and versatility allowed me to 
+                quickly prototype ideas and build data-driven applications. I explored libraries like 
+                NumPy, Pandas, and TensorFlow, which opened up new possibilities in data analysis and 
+                artificial intelligence.
+              </p>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </PageSection>
+
+    <!-- Experiments Section -->
+    <PageSection id="experiments">
+      <div class="max-w-6xl mx-auto">
+        <h1 data-animate="fade" class="text-3xl md:text-4xl font-bold mb-12 md:mb-16">
+          Experiments
+        </h1>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          <!-- SZYX.AI Card -->
+          <NuxtLink to="/experiments/szyx-ai" class="experiment-card group" data-animate="fade">
+            <div class="aspect-[4/3] rounded-lg overflow-hidden relative">
+              <!-- <img 
+                src="/img/ai-bg.jpg"
+                alt="SZYX.AI"
+                class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500"
+              /> -->
+              <div class="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-colors duration-500"></div>
+              <div class="absolute top-0 left-0 w-full h-full p-6 flex flex-col justify-between">
+                <div class="flex justify-between items-start">
+                  <div class="bg-white text-black text-xs px-2 py-1 rounded uppercase tracking-wider font-medium">
+                    AI Project
+                  </div>
+                </div>
+                <div>
+                  <h3 class="text-xl font-medium text-white">SZYX.AI</h3>
+                </div>
+              </div>
+            </div>
+            <div class="mt-4 group-hover:mt-5 transition-all duration-300">
+              <p class="text-gray-400 text-sm mb-2 font-normal">
+                2025
+              </p>
+              <p class="text-white text-base">
+                My personal AI assistant that knows about me and can answer questions about my life.
+              </p>
+            </div>
+          </NuxtLink>
+          
+          <!-- Journal Card -->
+          <NuxtLink to="/experiments/journal" class="experiment-card group" data-animate="fade">
+            <div class="aspect-[4/3] rounded-lg overflow-hidden relative">
+              <!-- <img 
+                src="/img/journal-bg.jpg"
+                alt="Digital Journal"
+                class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500"
+              /> -->
+              <div class="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-colors duration-500"></div>
+              <div class="absolute top-0 left-0 w-full h-full p-6 flex flex-col justify-between">
+                <div class="flex justify-between items-start">
+                  <div class="bg-white text-black text-xs px-2 py-1 rounded uppercase tracking-wider font-medium">
+                    Productivity
+                  </div>
+                </div>
+                <div>
+                  <h3 class="text-xl font-medium text-white">Digital Journal</h3>
+                </div>
+              </div>
+            </div>
+            <div class="mt-4 group-hover:mt-5 transition-all duration-300">
+              <p class="text-gray-400 text-sm mb-2 font-normal">
+                2025
+              </p>
+              <p class="text-white text-base">
+                A personal journal app for documenting thoughts, ideas, and daily experiences.
+              </p>
+            </div>
+          </NuxtLink>
+          
+          <!-- Coming Soon Card -->
+          <div class="experiment-card-soon group" data-animate="fade">
+            <div class="aspect-[4/3] rounded-lg overflow-hidden relative bg-gray-900 border border-gray-800 border-dashed">
+              <div class="absolute top-0 left-0 w-full h-full p-6 flex flex-col justify-center items-center text-center">
+                <div class="bg-gray-800 rounded-full p-4 mb-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                  </svg>
+                </div>
+                <h3 class="text-xl font-medium text-gray-300">More coming soon</h3>
+              </div>
+            </div>
+            <div class="mt-4">
+              <p class="text-gray-400 text-sm mb-2 font-normal">
+                Future
+              </p>
+              <p class="text-gray-500 text-base">
+                I'm always working on new projects. Check back later!
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <!-- View All Projects Link -->
+        <div class="mt-16 text-center" data-animate="fade" data-animate-delay="300">
+          <NuxtLink to="/experiments" class="inline-flex items-center group">
+            <span class="text-lg text-gray-300 group-hover:text-white transition-colors duration-300">View All Projects</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 h-5 w-5 text-gray-400 group-hover:text-white transition-colors duration-300 transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </NuxtLink>
+        </div>
+      </div>
+    </PageSection>
   </div>
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { onMounted, onUnmounted } from 'vue'
 import { useScrollAnimation } from '~/composables/useScrollAnimation'
+import { useTextAnimation } from '~/composables/useTextAnimation'
+import { setupSmoothScroll } from '~/utils/smoothScroll'
 
 // Text rotation variables
 const textOptions = [
@@ -192,99 +295,14 @@ const textOptions = [
   'and you\'ll find me singing',
   'anyway I\'m Axel'
 ];
-const currentText = ref(textOptions[0]);
-let currentIndex = 0;
-let textInterval;
 
-// Initialize text rotation
-onMounted(() => {
-  textInterval = setInterval(() => {
-    currentIndex = (currentIndex + 1) % textOptions.length;
-    fadeOut();
-    setTimeout(() => {
-      currentText.value = textOptions[currentIndex];
-      fadeIn();
-    }, 500); // Half of transition time for fade out/in
-  }, 3500); // Change text every 2.5 seconds
-});
-
-// Clean up interval on component unmount
-onUnmounted(() => {
-  clearInterval(textInterval);
-});
-
-// Text fade helpers
-function fadeOut() {
-  const element = document.querySelector('.animated-text');
-  if (element) element.classList.add('fade-out');
-}
-
-function fadeIn() {
-  const element = document.querySelector('.animated-text');
-  if (element) {
-    element.classList.remove('fade-out');
-    element.classList.add('fade-in');
-    setTimeout(() => {
-      element.classList.remove('fade-in');
-    }, 500);
-  }
-}
+const { currentText } = useTextAnimation(textOptions);
 
 // Initialize scroll animations
 onMounted(() => {
-  useScrollAnimation()
+  useScrollAnimation();
+  setupSmoothScroll();
 })
-
-// Smooth scroll for navigation
-onMounted(() => {
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      e.preventDefault()
-      document.querySelector(this.getAttribute('href')).scrollIntoView({
-        behavior: 'smooth'
-      })
-    })
-  })
-})
-
-const userInput = ref('')
-const messages = ref([])
-
-const sendMessage = async () => {
-  if (!userInput.value.trim()) return
-  
-  const userMessage = userInput.value.trim()
-  messages.value.push({ role: 'user', content: userMessage })
-  userInput.value = ''
-  
-  try {
-    // Add loading message
-    const loadingIndex = messages.value.length;
-    messages.value.push({ role: 'assistant', content: "Thinking...", isLoading: true })
-    
-    // Call the API
-    const response = await $fetch('/api/chat', {
-      method: 'POST',
-      body: { message: userMessage }
-    })
-    
-    // Remove loading message and add response
-    if (messages.value[loadingIndex].isLoading) {
-      messages.value.splice(loadingIndex, 1);
-    }
-    
-    messages.value.push({ 
-      role: 'assistant', 
-      content: response.response || "I'm sorry, I couldn't generate a response."
-    })
-  } catch (error) {
-    console.error('Error sending message:', error)
-    messages.value.push({ 
-      role: 'assistant', 
-      content: "I'm sorry, there was an error processing your request. Please try again later."
-    })
-  }
-}
 </script>
 
 <style scoped>
@@ -471,5 +489,27 @@ html {
 
 section {
   scroll-margin-top: 80px;
+}
+
+/* Add these styles to your <style> section */
+.experiment-card {
+  @apply block transition-all duration-300;
+}
+
+
+.experiment-card-soon {
+  @apply transition-all duration-300;
+}
+
+
+/* Apply this if you're using Tailwind v4 */
+@layer utilities {
+  .grayscale {
+    filter: grayscale(100%);
+  }
+  
+  .grayscale-0 {
+    filter: grayscale(0%);
+  }
 }
 </style>
