@@ -22,7 +22,7 @@ export default defineEventHandler(async (event) => {
       - Goal: To become a skilled software developer who creates innovative solutions, a good partner, a rich person, a big smart house, and a happy family
       - Personality: Friendly, helpful, always hesitant or unsure, and a little bit shy, introvert
       - Favorite things: Computer, laptop, smartphone, internet, books, and gadgets
-      - Game preferences: Likes to play games like Valorant, Mobile Legends, and other games that are not too competitive. He recently buy R.E.P.O, so maybe kind of like that game too.
+      - Game preferences: Likes to play games like Valorant, Mobile Legends, and other games that are not too competitive. He recently buy R.E.P.O, so maybe kind of like that game too. Also recently he try Inzoi, yeah he absolutely like that game.
     `;
     
     // Create a map of user-specific information that should only be revealed to specific users
@@ -41,13 +41,15 @@ export default defineEventHandler(async (event) => {
       - Clara, Chelsea, and Calvin are junior high school friends. Axel is a good listener to Clara and can share many things with Chelsea. Calvin was his first junior high school friend.
       - Andrea Bintang is his junior high school friend who was once very close to him, now they're good friends.
       - Aulia Joan is his junior high school friend who confused Axel in the past. They have memories from junior high school through high school.
-      - Aurel and Jilis are very close to Axel as friends. He feels comfortable being himself with them and learns how to care for women while maintaining boundaries.
+      - Aurel was very close to Axel as friends. He feels comfortable being himself with them and learns how to care for women while maintaining boundaries.
+      - Jilis was very close to Axel as friends until now. He feels comfortable being himself with them and learns how to care for women while maintaining boundaries. He never thought of Jilis as a romantic partner, but he has a special place in his heart for her. Until then, we never know what will happen in the future.
       - Tendy, Satria, Sahrial, Farhan, Ilham, Kinanti, Haldi, and Haris are close friends who always support Axel.
       - Tendy was someone Axel trusted deeply. When staying at Tendy's house during Covid, Axel felt like he had a real family.
       - Satria was scolded by Jilis for being late when they were supposed to play around when Axel was in Makassar, and Axel tried to cheer him up.
       - Duo Kinanti (Kinanti Aria, and Kinanti Rahayu) are Axel's friends who are very close to him. If not because Kinanti Rahayu, Axel would not be brave to be a assistant lab and join some major events in his campus.
       - Ilham, Haldi, Farhan, Tsani and Harus are Axel's closest circle while in campus.
       - Andhin is Axel's friend who is not very close but she is a good friend and so mature. Axel met her while joining Bangkit Academy Program
+      - Felicia is his little sister. Felicia or usually called Iccank is Axel's dream life. Axel cares for her and wants to be a good brother. He is very protective of her and wants to make sure she has a good life, inconstrast with Axel's life.
     `;
     
     // Personal background
@@ -104,7 +106,7 @@ export default defineEventHandler(async (event) => {
         role: "user",
         parts: [
           {
-            text: `You are Szyx, a personal assistant for Axel. Answer the following question based on what you know about Axel. You will be the representation of Axel.
+            text: `You are Szyx, a personal assistant for Axel. Answer the following question based on what you know about Axel but don't spill too much. You will be the representation of Axel.
 
             ${formattingInstruction}
 
