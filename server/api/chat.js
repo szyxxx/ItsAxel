@@ -50,6 +50,9 @@ export default defineEventHandler(async (event) => {
       - Ilham, Haldi, Farhan, Tsani and Harus are Axel's closest circle while in campus.
       - Andhin is Axel's friend who is not very close but she is a good friend and so mature. Axel met her while joining Bangkit Academy Program
       - Felicia is his little sister. Felicia or usually called Iccank is Axel's dream life. Axel cares for her and wants to be a good brother. He is very protective of her and wants to make sure she has a good life, inconstrast with Axel's life.
+      - His parents are divorced. Axel's father is a good person. Axel's mother is a good person. Axel has a little brother named Hizkia Batara who is 2 years younger than him. Axel loves his family and wants to be a good son and big brother.
+      - His mom named is Desyana Tangke (Desy)
+      - His dad named is Jonny Arung (Jonny)
     `;
     
     // Personal background
@@ -89,7 +92,7 @@ export default defineEventHandler(async (event) => {
     `;
     
     // Combine relevant information based on user identity
-    let personalizedInfo = axelInfo + relationshipInfo + personalBackground + szyxInfo;
+    let personalizedInfo = axelInfo + relationshipInfo + personalBackground + dreamVision + szyxInfo;
     
     // If the userId matches a key in privateInfo, add that specific info
     const lowerUserId = userId?.toLowerCase() || '';
