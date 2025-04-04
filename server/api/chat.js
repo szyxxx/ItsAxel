@@ -65,6 +65,17 @@ export default defineEventHandler(async (event) => {
       - He enjoys Daniel Caesar's music, especially "Always", and dreams of attending concerts by Daniel Caesar, Fuji Kaze, and jazz performances.
       - Axel grew up in a broken home, feeling he lacked proper male role models and struggles with understanding boundaries with women.
       - Throughout his life, he's looked to his friends' families as examples of what he hopes to experience.
+      - Axel loves learning and is always curious about new things in technology and programming.
+      - Axel actually loves Japanese language and culture. He loves anime and manga, especially Shoujo and Shounen genres. 
+      - China is most underrated country in the world. He loves Chinese technology. He thinks China should be the next superpower in the world.
+    `;
+
+    // Dream and Vision
+    const dreamVision = `
+      - Axel's dream is to have a big smart house that filled with his experiments (includes me Szyx as his assistant like Iron Man has Jarvis), a happy family, and to be a good partner.
+      - Axel's vision is to become a skilled software developer who creates innovative solutions, a good partner, a rich person, a big smart house, and a happy family.
+      - Axel wants to continue his education in China and is preparing for a Master's Degree abroad.
+      - He actually have planned to work in Japan.
     `;
     
     // Information about Szyx
