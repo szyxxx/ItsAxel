@@ -13,12 +13,12 @@ CREATE TABLE profiles (
 -- Create a table for diary entries
 CREATE TABLE diary_entries (
   id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
-  user_id UUID REFERENCES auth.users ON DELETE CASCADE NOT NULL,
   title TEXT NOT NULL,
   content TEXT NOT NULL,
   mood TEXT,
   tags TEXT[],
   is_public BOOLEAN DEFAULT FALSE,
+  password TEXT,
   created_at TIMESTAMP WITH TIME ZONE DEFAULT TIMEZONE('utc'::TEXT, NOW()) NOT NULL,
   updated_at TIMESTAMP WITH TIME ZONE DEFAULT TIMEZONE('utc'::TEXT, NOW()) NOT NULL
 );
