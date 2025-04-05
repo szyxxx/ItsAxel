@@ -441,7 +441,7 @@ const setupAudio = () => {
     // Create a new audio element
     audio.value = new Audio()
     audio.value.crossOrigin = "anonymous" // Add this line for CORS
-    audio.value.src = '/audio/journal-ambience.mp3'
+    audio.value.src = 'https://gsbvayifmvdojiqobkcz.supabase.co/storage/v1/object/public/podcast//Recording.m4a'
     audio.value.preload = 'auto'
     audio.value.loop = true
     audio.value.volume = volume.value
