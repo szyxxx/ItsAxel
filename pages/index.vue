@@ -36,7 +36,6 @@
             <div data-animate="slide-up" class="glass-card p-8 rounded-2xl mb-8">
               <h1 class="text-3xl md:text-4xl font-bold mb-6 md:mb-8 relative">
                 <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-300">About Me</span>
-                <div class="absolute h-1 w-24 bg-blue-500 bottom-0 left-0"></div>
               </h1>
               
               <div class="text-lg md:text-xl">
@@ -87,7 +86,6 @@
             <div class="glass-card p-6 rounded-2xl">
               <h2 class="text-xl md:text-2xl font-bold mb-4 md:mb-6 relative">
                 <span class="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-300">Trivia of Myself</span>
-                <div class="absolute h-1 w-16 bg-purple-500 bottom-0 left-0"></div>
               </h2>
               
               <div class="mb-6">
@@ -178,28 +176,25 @@
     <!-- Experiments Section -->
     <PageSection id="experiments">
       <div class="max-w-6xl mx-auto">
-        <h1 data-animate="fade" class="text-3xl md:text-4xl font-bold mb-12 md:mb-16">
-          Experiments
+        <h1 data-animate="fade" class="text-3xl md:text-4xl font-bold mb-12 md:mb-16 relative">
+          <span class="bg-clip-text text-transparent bg-gradient-to-r from-pink-400 to-indigo-500">Experiments</span>
         </h1>
         
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           <!-- SZYX.AI Card -->
-          <NuxtLink to="/experiments/szyx-ai" class="experiment-card group" data-animate="fade">
+          <NuxtLink to="/experiments/szyx-ai" class="experiment-card group" data-animate="slide-up">
             <div class="aspect-[4/3] rounded-lg overflow-hidden relative">
-              <!-- <img 
-                src="/img/ai-bg.jpg"
-                alt="SZYX.AI"
-                class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500"
-              /> -->
+              <div class="absolute inset-0 bg-gradient-to-br from-blue-900 to-purple-900 group-hover:opacity-80 opacity-100 transition-all duration-500"></div>
+              <div class="absolute inset-0 bg-[url('/img/ai-bg.jpg')] bg-cover bg-center opacity-40 group-hover:opacity-60 transition-all duration-500 mix-blend-overlay"></div>
               <div class="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-colors duration-500"></div>
               <div class="absolute top-0 left-0 w-full h-full p-6 flex flex-col justify-between">
                 <div class="flex justify-between items-start">
-                  <div class="bg-white text-black text-xs px-2 py-1 rounded uppercase tracking-wider font-medium">
+                  <div class="glass-card text-blue-300 text-xs px-3 py-1.5 rounded-full uppercase tracking-wider font-medium">
                     AI Project
                   </div>
                 </div>
                 <div>
-                  <h3 class="text-xl font-medium text-white">Szyx.AI</h3>
+                  <h3 class="text-xl font-bold text-white">Szyx.AI</h3>
                 </div>
               </div>
             </div>
@@ -214,22 +209,19 @@
           </NuxtLink>
           
           <!-- Journal Card -->
-          <NuxtLink to="/experiments/journal" class="experiment-card group" data-animate="fade">
+          <NuxtLink to="/experiments/journal" class="experiment-card group" data-animate="slide-up" data-animate-delay="100">
             <div class="aspect-[4/3] rounded-lg overflow-hidden relative">
-              <!-- <img 
-                src="/img/journal-bg.jpg"
-                alt="Digital Journal"
-                class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500"
-              /> -->
+              <div class="absolute inset-0 bg-gradient-to-br from-emerald-900 to-blue-900 group-hover:opacity-80 opacity-100 transition-all duration-500"></div>
+              <div class="absolute inset-0 bg-[url('/img/journal-bg.jpg')] bg-cover bg-center opacity-40 group-hover:opacity-60 transition-all duration-500 mix-blend-overlay"></div>
               <div class="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-colors duration-500"></div>
               <div class="absolute top-0 left-0 w-full h-full p-6 flex flex-col justify-between">
                 <div class="flex justify-between items-start">
-                  <div class="bg-white text-black text-xs px-2 py-1 rounded uppercase tracking-wider font-medium">
+                  <div class="glass-card text-green-300 text-xs px-3 py-1.5 rounded-full uppercase tracking-wider font-medium">
                     Productivity
                   </div>
                 </div>
                 <div>
-                  <h3 class="text-xl font-medium text-white">Digital Journal</h3>
+                  <h3 class="text-xl font-bold text-white">Digital Journal</h3>
                 </div>
               </div>
             </div>
@@ -244,22 +236,23 @@
           </NuxtLink>
           
           <!-- Coming Soon Card -->
-          <div class="experiment-card-soon group" data-animate="fade">
-            <div class="aspect-[4/3] rounded-lg overflow-hidden relative bg-gray-900 border border-gray-800 border-dashed">
+          <div class="experiment-card-soon group" data-animate="slide-up" data-animate-delay="200">
+            <div class="aspect-[4/3] rounded-lg overflow-hidden relative glass-card border border-gray-700/50 border-dashed">
+              <div class="absolute inset-0 bg-gradient-to-br from-gray-900 to-gray-800 opacity-60"></div>
               <div class="absolute top-0 left-0 w-full h-full p-6 flex flex-col justify-center items-center text-center">
-                <div class="bg-gray-800 rounded-full p-4 mb-4">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div class="glass-card rounded-full p-4 mb-4 border border-gray-700/30">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
                   </svg>
                 </div>
-                <h3 class="text-xl font-medium text-gray-300">More coming soon</h3>
+                <h3 class="text-xl font-bold text-gray-300">More coming soon</h3>
               </div>
             </div>
-            <div class="mt-4">
+            <div class="mt-4 group-hover:mt-5 transition-all duration-300">
               <p class="text-gray-400 text-sm mb-2 font-normal">
                 Future
               </p>
-              <p class="text-gray-500 text-base">
+              <p class="text-gray-300 text-base">
                 I'm always working on new projects. Check back later!
               </p>
             </div>
@@ -268,9 +261,9 @@
         
         <!-- View All Projects Link -->
         <div class="mt-16 text-center" data-animate="fade" data-animate-delay="300">
-          <NuxtLink to="/experiments" class="inline-flex items-center group">
-            <span class="text-lg text-gray-300 group-hover:text-white transition-colors duration-300">View All Projects</span>
-            <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 h-5 w-5 text-gray-400 group-hover:text-white transition-colors duration-300 transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <NuxtLink to="/experiments" class="inline-flex items-center social-btn github px-6 py-2">
+            <span class="text-lg">View All Projects</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 h-5 w-5 transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </NuxtLink>
@@ -503,6 +496,32 @@ section {
 .experiment-card-soon {
   transition-property: all;
   transition-duration: 300ms;
+}
+
+/* Enhanced experiment card styles */
+.experiment-card {
+  display: block;
+  transition-property: all;
+  transition-duration: 300ms;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.experiment-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px -10px rgba(59, 130, 246, 0.3);
+}
+
+.experiment-card-soon {
+  transition-property: all;
+  transition-duration: 300ms;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.experiment-card-soon:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px -10px rgba(99, 102, 241, 0.2);
 }
 
 /* Layer utilities */

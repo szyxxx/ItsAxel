@@ -15,30 +15,31 @@
     <section class="relative mb-16 overflow-hidden">
       <!-- Main content -->
       <div class="relative z-10 pt-8 pb-12 px-4">
-        <div class="flex flex-col items-center justify-center mb-8">
-          
-          <h1 class="text-4xl md:text-5xl font-bold mb-3 text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-300 hero-text">
-            Here Me Out!
-          </h1>
-          <p class="text-gray-300 max-w-2xl text-center mb-8">
-            Hey you discovering this page, welcome to my journal! Here, I share my thoughts and experiences.
-          </p>
-        </div>
         
         <!-- Featured entry card with glass design -->
         <div data-animate="slide-up" class="featured-card max-w-4xl mx-auto overflow-hidden rounded-2xl">
           <div class="card-glow"></div>
           <div class="relative">
             <div class="p-6 relative z-10">
+              <!-- Player title and subtitle -->
+              <div class="text-center mb-6">
+                <h2 class="text-2xl md:text-3xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-300">
+                  Vibe with Me
+                </h2>
+                <p class="text-gray-400 text-sm max-w-2xl mx-auto">
+                  Hey you discover this page. I do some yapping here 😶‍🌫️.
+                </p>
+              </div>
+              
               <!-- Player and content -->
               <div class="w-full flex flex-col">
                 <div class="flex items-center justify-between mb-4">
                   <div>
-                    <h2 class="text-2xl font-bold mb-1">It's Szyx 😶‍🌫️</h2>
+                    <h3 class="text-xl font-bold mb-1">Here Me Out!</h3>
                     <p class="text-sm text-gray-400">Why Szyx? Why making these?</p>
                   </div>
                   <UBadge color="blue" variant="subtle" class="uppercase tracking-wider">
-                    Live
+                    07 April 2024
                   </UBadge>
                 </div>
                 
@@ -138,9 +139,12 @@
     <!-- Journal entries grid section -->
     <section class="px-4">
       <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
-        <div class="flex items-center gap-6">
-          <h2 class="text-2xl font-bold">Journal Collection</h2>
-          
+        <div class="flex items-center gap-3">
+          <!-- Enhanced section title for desktop -->
+          <div>
+            <h2 class="text-2xl font-bold mb-0 text-white">Journal Collection</h2>
+            <p class="text-gray-50 text-sm hidden md:block mt-1">My thoughts, ideas and experiences captured in time</p>
+          </div>
         </div>
         
         <div class="flex flex-col sm:flex-row flex-wrap gap-4 w-full md:w-auto">
@@ -749,8 +753,8 @@ onUnmounted(() => {
 
 /* Journal cards */
 .journal-card {
-  background: rgba(17, 25, 40, 0.6);
-  backdrop-filter: blur(10px);
+  background: rgba(17, 25, 40, 0.861);
+  backdrop-filter: blur(30px);
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
   transition: all 0.3s ease;
@@ -928,6 +932,22 @@ input[type="range"]::-webkit-slider-thumb:hover {
   .featured-card {
     /* Simplify card on mobile */
     backdrop-filter: blur(5px);
+  }
+  
+  section h2.text-2xl.font-bold {
+    position: relative;
+    padding-bottom: 0.5rem;
+  }
+  
+  section h2.text-2xl.font-bold::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background: linear-gradient(to right, #3b82f6, transparent);
+    border-radius: 2px;
   }
 }
 </style>
