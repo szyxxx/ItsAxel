@@ -152,6 +152,7 @@ const password = ref('')
 const showPasswordModal = ref(false)
 const passwordError = ref('')
 const passwordInput = ref(null)
+const hasAutoFocused = ref(false) // Add this line to track if we've already focused
 
 // Fetch entry data
 const fetchEntryData = async () => {
@@ -170,6 +171,14 @@ const fetchEntryData = async () => {
     if (entry.value.password) {
       isLocked.value = true
       showPasswordModal.value = true
+      
+      // Focus the password input after DOM update
+      nextTick(() => {
+        if (passwordInput.value && !hasAutoFocused.value) {
+          passwordInput.value.focus()
+          hasAutoFocused.value = true
+        }
+      })
     } else {
       renderContent()
     }
@@ -222,15 +231,14 @@ const formattedDate = computed(() => {
 onMounted(() => {
   fetchEntryData()
   
-  // Watch for modal opening to focus the password input
+  // Modified watcher to ensure focus happens both on mount and when modal opens
   watch(showPasswordModal, (newVal) => {
     if (newVal && passwordInput.value) {
-      // Use nextTick to ensure the DOM is updated before focusing
       nextTick(() => {
         passwordInput.value.focus()
       })
     }
-  })
+  }, { immediate: true }) // Add immediate: true to run on mount
 })
 
 onUnmounted(() => {

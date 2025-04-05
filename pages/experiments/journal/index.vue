@@ -42,8 +42,8 @@
                   </UBadge>
                 </div>
                 
-                <!-- Visualizer -->
-                <div class="h-16 mb-4 bg-gray-800/50 rounded-lg overflow-hidden flex items-end justify-between p-2">
+                <!-- Visualizer - only show on non-mobile screens -->
+                <div class="hidden md:flex h-16 mb-4 bg-gray-800/50 rounded-lg overflow-hidden items-end justify-between p-2">
                   <div v-for="i in 20" :key="i" class="visualizer-bar mx-px rounded-t-sm" 
                        :style="{
                          height: `${10}%`,
@@ -54,18 +54,18 @@
                 
                 <!-- Audio controls with integrated volume -->
                 <div class="bg-gray-800/50 rounded-lg p-4">
-                  <div class="flex items-center gap-4">
+                  <div class="flex flex-col sm:flex-row items-center gap-4">
                     <UButton 
                       :icon="isPlaying ? 'i-heroicons-pause' : 'i-heroicons-play'" 
                       color="blue" 
                       variant="solid"
-                      class="play-button"
+                      class="play-button w-full sm:w-auto"
                       @click="toggleAudio"
                     >
                       {{ isPlaying ? 'Pause' : 'Play' }}
                     </UButton>
                     
-                    <div class="flex-1">
+                    <div class="flex-1 w-full mt-3 sm:mt-0">
                       <div class="relative pt-1">
                         <div class="flex mb-2 items-center justify-between">
                           <div>
@@ -74,8 +74,8 @@
                             </span>
                           </div>
                           <div class="flex items-center gap-2">
-                            <!-- Add volume control -->
-                            <div class="flex items-center gap-2">
+                            <!-- Volume control - simplified for mobile -->
+                            <div class="hidden sm:flex items-center gap-2">
                               <UButton
                                 :icon="volume === 0 ? 'i-heroicons-speaker-x-mark' : 'i-heroicons-speaker-wave'"
                                 color="gray"
@@ -93,6 +93,15 @@
                                 class="w-20 accent-blue-500"
                               />
                             </div>
+                            <!-- Mobile friendly volume button -->
+                            <UButton
+                              :icon="volume === 0 ? 'i-heroicons-speaker-x-mark' : 'i-heroicons-speaker-wave'"
+                              color="gray"
+                              variant="ghost"
+                              size="xs"
+                              @click="toggleMute"
+                              class="sm:hidden"
+                            />
                             <span class="text-xs font-semibold inline-block text-blue-400">
                               {{ formatTime(duration) }}
                             </span>
@@ -343,6 +352,10 @@ const navigateToEntry = (id) => {
 // Initialize Web Audio API
 const initAudioVisualizer = () => {
   if (audioContext.value || !audio.value) return
+  
+  // Check if we're on mobile - don't initialize visualizer on mobile devices
+  const isMobile = window.innerWidth < 768
+  if (isMobile) return
   
   try {
     audioContext.value = new (window.AudioContext || window.webkitAudioContext)()
@@ -904,5 +917,17 @@ input[type="range"]::-webkit-slider-thumb {
 input[type="range"]::-webkit-slider-thumb:hover {
   transform: scale(1.2);
   background: #60a5fa;
+}
+
+/* Make visualizer bars responsive */
+@media (max-width: 768px) {
+  .visualizer-bar {
+    display: none;
+  }
+  
+  .featured-card {
+    /* Simplify card on mobile */
+    backdrop-filter: blur(5px);
+  }
 }
 </style>
