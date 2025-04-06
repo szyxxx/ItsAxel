@@ -52,7 +52,7 @@
                     <p class="text-sm text-gray-400">Why Szyx? Why making these?</p>
                   </div>
                   <UBadge color="blue" variant="subtle" class="uppercase tracking-wider">
-                    07 April 2024
+                    06 April 2024
                   </UBadge>
                 </div>
                 
