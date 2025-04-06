@@ -271,103 +271,14 @@
       </div>
     </PageSection>
     
-    <!-- Feedback Section -->
-    <PageSection id="feedback" sectionClass="py-16 md:py-24 relative z-10">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 data-animate="fade" class="text-3xl md:text-4xl font-bold text-center mb-10 md:mb-16 bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-emerald-500">
-          Are You Sattisfied?
-        </h1>
-        
-        <div data-animate="slide-up" class="glass-card rounded-2xl p-6 md:p-8">
-          <div v-if="feedbackSubmitted" class="text-center py-8">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 mx-auto text-green-500 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-            <h3 class="text-2xl font-bold text-white mb-2">Thank You!</h3>
-            <p class="text-gray-300">Your feedback has been submitted successfully.</p>
-            <button @click="resetFeedbackForm" class="mt-6 social-btn github">
-              <span>Submit Another Feedback</span>
-            </button>
-          </div>
-          
-          <form v-else @submit.prevent="submitFeedback" class="space-y-6">
-            <div class="feedback-animate">
-              <label for="name" class="block text-sm font-medium text-gray-300 mb-2">Your Name</label>
-              <input 
-                type="text" 
-                id="name" 
-                v-model="feedbackForm.name" 
-                required
-                class="w-full px-4 py-3 bg-gray-900/50 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-white"
-                placeholder="John Doe"
-              />
-            </div>
-            
-            <div class="feedback-animate" style="--delay: 100ms">
-              <label for="feedback" class="block text-sm font-medium text-gray-300 mb-2">Your Feedback</label>
-              <textarea 
-                id="feedback" 
-                v-model="feedbackForm.message" 
-                required
-                rows="4"
-                class="w-full px-4 py-3 bg-gray-900/50 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-white resize-none"
-                placeholder="Share your thoughts about my website or projects..."
-              ></textarea>
-            </div>
-            
-            <div class="feedback-animate" style="--delay: 200ms">
-              <label for="rating" class="block text-sm font-medium text-gray-300 mb-2">Rating</label>
-              <div class="flex items-center gap-2">
-                <template v-for="star in 5" :key="star">
-                  <button 
-                    type="button"
-                    @click="feedbackForm.rating = star"
-                    class="focus:outline-none"
-                  >
-                    <svg xmlns="http://www.w3.org/2000/svg" 
-                      :class="
-                        [
-                          'h-8 w-8 transition-colors duration-200',
-                          feedbackForm.rating >= star ? 'text-yellow-400' : 'text-gray-600'
-                        ]" 
-                      viewBox="0 0 20 20" fill="currentColor">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  </button>
-                </template>
-              </div>
-            </div>
-            
-            <div class="pt-4 feedback-animate" style="--delay: 300ms">
-              <button 
-                type="submit" 
-                class="w-full social-btn github py-3 text-center justify-center"
-                :disabled="isSubmitting"
-              >
-                <span v-if="isSubmitting">
-                  <svg class="animate-spin -ml-1 mr-2 h-4 w-4 text-white inline-block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                  </svg>
-                  Submitting...
-                </span>
-                <span v-else>Submit Feedback</span>
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </PageSection>
-    
   </div>
 </template>
 
 <script setup>
-import { onMounted, onUnmounted, ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import { useScrollAnimation } from '~/composables/useScrollAnimation'
 import { useTextAnimation } from '~/composables/useTextAnimation'
 import { setupSmoothScroll } from '~/utils/smoothScroll'
-import { useSupabaseClient } from '#imports'
 
 // Text rotation variables
 const textOptions = [
@@ -381,116 +292,10 @@ const textOptions = [
 
 const { currentText } = useTextAnimation(textOptions);
 
-// Supabase client
-const supabase = useSupabaseClient()
-
-// Feedback form data
-const feedbackForm = ref({
-  name: '',
-  message: '',
-  rating: 0
-})
-
-const isSubmitting = ref(false)
-const feedbackSubmitted = ref(false)
-const recentFeedbacks = ref([])
-
-// Submit feedback function
-const submitFeedback = async () => {
-  if (!feedbackForm.value.name || !feedbackForm.value.message || !feedbackForm.value.rating) {
-    alert('Please fill all fields and provide a rating')
-    return
-  }
-  
-  isSubmitting.value = true
-  
-  try {
-    const { error } = await supabase.from('feedback').insert({
-      name: feedbackForm.value.name,
-      message: feedbackForm.value.message,
-      rating: feedbackForm.value.rating
-    })
-    
-    if (error) throw error
-    
-    feedbackSubmitted.value = true
-    // Refresh feedback list
-    fetchRecentFeedback()
-  } catch (error) {
-    console.error('Error submitting feedback:', error)
-    alert('Failed to submit feedback. Please try again.')
-  } finally {
-    isSubmitting.value = false
-  }
-}
-
-// Reset form after submission
-const resetFeedbackForm = () => {
-  feedbackForm.value = {
-    name: '',
-    message: '',
-    rating: 0
-  }
-  feedbackSubmitted.value = false
-}
-
-// Fetch recent feedback
-const fetchRecentFeedback = async () => {
-  try {
-    const { data, error } = await supabase
-      .from('feedback')
-      .select('name, message, rating, created_at')
-      .order('created_at', { ascending: false })
-      .limit(4)
-    
-    if (error) throw error
-    
-    recentFeedbacks.value = data
-  } catch (error) {
-    console.error('Error fetching recent feedback:', error)
-  }
-}
-
-// Format date for display
-const formatDate = (dateString) => {
-  const date = new Date(dateString)
-  return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })
-}
-
-// Initialize scroll animations and fetch feedback
+// Initialize scroll animations
 onMounted(() => {
   useScrollAnimation();
   setupSmoothScroll();
-  fetchRecentFeedback();
-  
-  // Setup scroll-driven animations for feedback form
-  const setupFeedbackAnimations = () => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const elements = entry.target.querySelectorAll('.feedback-animate')
-          elements.forEach((el, index) => {
-            const delay = el.style.getPropertyValue('--delay') || `${index * 100}ms`
-            el.style.transitionDelay = delay
-            el.classList.add('feedback-animate-visible')
-          })
-        }
-      })
-    }, { threshold: 0.2 })
-    
-    const feedbackSection = document.getElementById('feedback')
-    if (feedbackSection) {
-      observer.observe(feedbackSection)
-    }
-    
-    return observer
-  }
-  
-  const observer = setupFeedbackAnimations()
-  
-  onUnmounted(() => {
-    observer.disconnect()
-  })
 })
 </script>
 
