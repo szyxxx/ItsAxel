@@ -16,6 +16,19 @@
       <!-- Main content -->
       <div class="relative z-10 pt-8 pb-12 px-4">
         
+        <!-- Home navigation -->
+        <div class="mb-6 flex justify-start hover:text-blue-400 transition-colors">
+          <UButton
+            to="/"
+            icon="i-heroicons-home"
+            color="gray"
+            variant="ghost"
+            class="hover:text-blue-400 transition-colors mr-2"
+          >
+          </UButton>
+          <span>Home</span>
+        </div>
+
         <!-- Featured entry card with glass design -->
         <div data-animate="slide-up" class="featured-card max-w-4xl mx-auto overflow-hidden rounded-2xl">
           <div class="card-glow"></div>

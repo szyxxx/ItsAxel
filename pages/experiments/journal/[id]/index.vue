@@ -116,16 +116,6 @@
           <div class="text-xs text-gray-500">
             Entry #{{ id }}
           </div>
-          
-          <div class="flex items-center space-x-2">
-            <UButton 
-              icon="i-heroicons-pencil-square" 
-              color="blue"
-              :to="`/experiments/journal/${id}/edit`"
-            >
-              Edit
-            </UButton>
-          </div>
         </div>
       </div>
     </div>
