@@ -451,67 +451,60 @@ const setupAudio = () => {
   try {
     console.log('Setting up audio player')
     
-    // Create a new audio element
     audio.value = new Audio()
-    audio.value.crossOrigin = "anonymous" // Add this line for CORS
-    audio.value.src = 'https://gsbvayifmvdojiqobkcz.supabase.co/storage/v1/object/public/podcast//Recording.m4a'
+    audio.value.crossOrigin = "anonymous"
+    
+    // Direct audio source
+    const audioUrl = '/audio/Hello-World.mp3'
+    audio.value.src = audioUrl
     audio.value.preload = 'auto'
     audio.value.loop = true
     audio.value.volume = volume.value
     
     // Add event listeners
-    audio.value.addEventListener('loadedmetadata', () => {
+    audio.value.addEventListener('loadeddata', () => {
+      // This event fires when audio data is loaded
       duration.value = audio.value.duration
-      console.log('Audio duration loaded:', duration.value)
       audioReady.value = true
-      initAudioVisualizer() // Initialize visualizer when audio is ready
-    })
-    
-    audio.value.addEventListener('timeupdate', () => {
-      currentTime.value = audio.value.currentTime
-      console.log('Current time:', currentTime.value)
-    })
-    
-    audio.value.addEventListener('error', (e) => {
-      console.error('Audio error:', e)
-      audioReady.value = false
-      cleanupVisualizer()
-    })
-    
-    audio.value.addEventListener('canplay', () => {
-      console.log('Audio can play')
-      audioReady.value = true
+      console.log('Audio loaded:', audioUrl)
       initAudioVisualizer()
     })
     
-    audio.value.addEventListener('play', () => {
-      console.log('Audio playing')
-      isPlaying.value = true
-      initAudioVisualizer()
-    })
-    
-    audio.value.addEventListener('pause', () => {
-      console.log('Audio paused')
-      isPlaying.value = false
-      cleanupVisualizer()
-    })
-    
-    audio.value.addEventListener('ended', () => {
-      console.log('Audio ended')
-      isPlaying.value = false
-      cleanupVisualizer()
-    })
-    
-    // Start loading the audio
-    audio.value.load()
-    
+    // Add buffer progress tracking
     audio.value.addEventListener('progress', () => {
-      if (audio.value && audio.value.buffered.length > 0) {
+      if (audio.value?.buffered.length > 0) {
         const buffered = audio.value.buffered.end(audio.value.buffered.length - 1)
         bufferProgress.value = (buffered / audio.value.duration) * 100
       }
     })
     
+    // Add error handling
+    audio.value.addEventListener('error', (e) => {
+      console.error('Audio error:', e.target.error)
+      audioReady.value = false
+      cleanupVisualizer()
+    })
+
+    // Rest of your event listeners
+    audio.value.addEventListener('timeupdate', () => {
+      currentTime.value = audio.value.currentTime
+    })
+    
+    audio.value.addEventListener('play', () => {
+      isPlaying.value = true
+      initAudioVisualizer()
+    })
+    
+    audio.value.addEventListener('pause', () => {
+      isPlaying.value = false
+      cleanupVisualizer()
+    })
+    
+    audio.value.addEventListener('ended', () => {
+      isPlaying.value = false
+      cleanupVisualizer()
+    })
+
   } catch (error) {
     console.error('Audio setup error:', error)
     audioReady.value = false
