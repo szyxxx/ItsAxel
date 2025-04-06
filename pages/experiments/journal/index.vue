@@ -37,7 +37,7 @@
               <!-- Player title and subtitle -->
               <div class="text-center mb-6">
                 <h2 class="text-2xl md:text-3xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-300">
-                  Vibe with Me
+                  Yapping Time!
                 </h2>
                 <p class="text-gray-400 text-sm max-w-2xl mx-auto">
                   Hey you discover this page. I do some yapping here 😶‍🌫️.
@@ -48,7 +48,7 @@
               <div class="w-full flex flex-col">
                 <div class="flex items-center justify-between mb-4">
                   <div>
-                    <h3 class="text-xl font-bold mb-1">Here Me Out!</h3>
+                    <h3 class="text-xl font-bold mb-1">Here Me Out</h3>
                     <p class="text-sm text-gray-400">Why Szyx? Why making these?</p>
                   </div>
                   <UBadge color="blue" variant="subtle" class="uppercase tracking-wider">
