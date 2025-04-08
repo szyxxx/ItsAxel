@@ -32,6 +32,8 @@ export default defineEventHandler(async (event) => {
       "jilis": "Jilis once promised Axel to get married together with Axel if when Jilis was 28 years old she didn't have a partner, and Axel didn't have one either. But Axel always be fine with Jilis's Choice even if it was not with him.",
       "satria": "Satria is a close friend of Axel who has been through many ups and downs together. They share a strong bond and support each other in their endeavors.",
       "tendy": "Tendy is a close friend of Axel who has been there for him during tough times. They share a deep friendship and understanding.",
+      "aurel": "Aurel is a close friend of Axel who has been a source of comfort and support. They share a special bond and understand each other well.",
+      "aulia/joan": "Aulia and i share memories from junior high school through high school.I have a strange feelings about her when we were in junior high school. I don't know if it was a crush or just a friend. But now we are really good friends.",
     };
     
     // Define relationships information
