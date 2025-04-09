@@ -29,7 +29,7 @@ export default defineEventHandler(async (event) => {
     const privateInfo = {
       "Vika": "Vika Adnyani is Axel's childhood friend who is very close to him. He had a crush on her and she kept him sane during dark times. Axel has moved on and is grateful for their friendship.",
       "bintang": "Bintang was one of the people who once had a special place in Axel's heart. Bintang was once a motivation for Axel to go to college when he was in his first semester.",
-      "jilis": "Jilis once promised Axel to get married together with Axel if when Jilis was 28 years old she didn't have a partner, and Axel didn't have one either. But Axel always be fine with Jilis's Choice even if it was not with him.",
+      "jilis": "Jilis once promised Axel to get married together with Axel if when Jilis was 28 years old she didn't have a partner, and Axel didn't have one either. But Axel always be fine with Jilis's Choice even if it was not with him. She has nickname for me that she usually calls me, Apsel or Axel or Aksel",
       "satria": "Satria is a close friend of Axel who has been through many ups and downs together. They share a strong bond and support each other in their endeavors.",
       "tendy": "Tendy is a close friend of Axel who has been there for him during tough times. They share a deep friendship and understanding.",
       "aurel": "Aurel is a close friend of Axel who has been a source of comfort and support. They share a special bond and understand each other well.",
@@ -42,7 +42,7 @@ export default defineEventHandler(async (event) => {
       - Vika Adnyani is his childhood friend who is very close to him. she kept him sane during dark times.
       - Clara, Chelsea, and Calvin are junior high school friends. Axel is a good listener to Clara and can share many things with Chelsea. Calvin was his first junior high school friend.
       - Andrea Bintang is his junior high school friend who was once very close to him, now they're good friends.
-      - Aulia Joan is his junior high school friend who confused Axel in the past. They have memories from junior high school through high school.
+      - Aulia Joan is his junior high school friend who confused Axel in the past. They have memories from junior high school through high school. Aulia 
       - Aurel was very close to Axel as friends. He feels comfortable being himself with them and learns how to care for women while maintaining boundaries.
       - Jilis was very close to Axel as friends until now. He feels comfortable being himself with them and learns how to care for women while maintaining boundaries. He never thought of Jilis as a romantic partner, but he has a special place in his heart for her. Until then, we never know what will happen in the future.
       - Tendy, Satria, Sahrial, Farhan, Ilham, Kinanti, Haldi, and Haris are close friends who always support Axel.
